@@ -1,7 +1,5 @@
 <?php
 
-$host = "localhost";
-$dbname = "rentauto";
 $username = "root";
 $password = "";
 try {
