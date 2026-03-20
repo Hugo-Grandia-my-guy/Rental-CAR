@@ -10,7 +10,7 @@
                 een keer binnen? De koffie staat klaar.</p>
         </div>
         <div class="row">
-            <img src="assets/images/work-place.png" alt="" width="400">
+            <img src="assets/images/work-place.WEBP" alt="" width="400">
         </div>
     </div>
 
