@@ -207,6 +207,7 @@ main {
 .advertorial .background-header-element {
   position: absolute;
   z-index: 0;
+  pointer-events: none;
 }
 
 footer {
