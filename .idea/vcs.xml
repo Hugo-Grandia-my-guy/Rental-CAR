@@ -2,10 +2,5 @@
 <project version="4">
   <component name="VcsDirectoryMappings">
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/SchoolProjecten" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/SchoolProjecten/CollegeProjects/LibraryMiniProject" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/SchoolProjecten/EindeProjecten/AutoRentApp" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/SchoolProjecten/EindeProjecten/CV_site_project" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/SchoolProjecten/EindeProjecten/Tamagotchi" vcs="Git" />
   </component>
 </project>

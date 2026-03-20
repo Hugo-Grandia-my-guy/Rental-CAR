@@ -2,19 +2,16 @@
     <header>
         <div class="advertorials">
             <div class="advertorial">
-                <h2>Hét platform om een auto te huren</h2>
+                <h2>Het platform om een auto te huren</h2>
                 <p>Snel en eenvoudig een auto huren. Natuurlijk voor een lage prijs.</p>
                 <a href="/car-detail" class="button-primary">Huur nu een auto</a>
                 <img src="/assets/images/car-rent-header-image-1.png" alt="">
-                <img src="/assets/images/header-circle-background.svg" alt="" class="background-header-element">    //class don't let to click the button
             </div>
             <div class="advertorial">
                 <h2>Wij verhuren ook bedrijfswagens</h2>
                 <p>Voor een vaste lage prijs met prettig voordelen.</p>
                 <a href="/car-detail" class="button-primary">Huur een bedrijfswagen</a>
                 <img src="/assets/images/car-rent-header-image-2.png" alt="">
-                <img src="/assets/images/header-block-background.svg" alt="" class="background-header-element">     //class don't let to click the button
-
             </div>
         </div>
     </header>
