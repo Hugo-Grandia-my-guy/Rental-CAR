@@ -12,6 +12,8 @@
                 <p>Voor een vaste lage prijs met prettig voordelen.</p>
                 <a href="/car-detail" class="button-primary">Huur een bedrijfswagen</a>
                 <img src="/assets/images/car-rent-header-image-2.png" alt="">
+                    //class don't let to click the button
+
             </div>
         </div>
     </header>
