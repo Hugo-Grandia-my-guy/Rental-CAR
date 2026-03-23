@@ -34,7 +34,7 @@
     <div class="menu">
         <?php if(isset($_SESSION['id'])){ ?>
         <div class="account">
-            <img src="assets/images/profil.png" alt="">
+            <img src="assets/images/profil.WEBP" alt="">
             <div class="account-dropdown">
                 <ul>
                     <li><img src="assets/images/icons/setting.svg" alt=""><a href="#">Naar account</a></li>
