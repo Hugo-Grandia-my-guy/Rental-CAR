@@ -12,12 +12,14 @@ $cars = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 <p>Snel en eenvoudig een auto huren. Natuurlijk voor een lage prijs.</p>
                 <a href="/car-detail" class="button-primary">Huur nu een auto</a>
                 <img src="/assets/images/car-rent-header-image-1.WEBP" alt="">
+                <img src="/assets/images/header-circle-background.svg" alt="" class="background-header-element">
             </div>
             <div class="advertorial">
                 <h2>Wij verhuren ook bedrijfswagens</h2>
                 <p>Voor een vaste lage prijs met prettig voordelen.</p>
                 <a href="/car-detail" class="button-primary">Huur een bedrijfswagen</a>
                 <img src="/assets/images/car-rent-header-image-2.WEBP" alt="">
+                <img src="/assets/images/header-block-background.svg" alt="" class="background-header-element">
             </div>
         </div>
     </header>
@@ -65,7 +67,7 @@ $cars = $stmt->fetchAll(PDO::FETCH_ASSOC);
                     <div class="car-specification">
                         <span><img src="/assets/images/icons/gas-station.svg"> <?= $car['gasoline'] ?>l</span>
                         <span><img src="/assets/images/icons/car.svg"> <?= $car['steering'] ?></span>
-                        <span><img src="/assets/images/icons/profile-2user.svg"> <?= $car['capacity'] ?> People</span>
+                        <span><img src="/assets/images/icons/profile-2user.svg"> <?= $car['capacity'] ?> Personen</span>
                     </div>
 
                     <div class="rent-details">

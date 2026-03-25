@@ -38,3 +38,33 @@ if (modal) {
         }
     });
 }
+
+let page = 1;
+const button = document.getElementById("loadMoreBtn");
+const container = document.getElementById("cars-container");
+
+let loading = false;
+
+if (button) {
+    button.addEventListener("click", () => {
+        if (loading) return;
+
+        loading = true;
+        page++;
+
+        fetch(`/database/load-more-cars.php?page=${page}`)
+            .then(response => response.text())
+            .then(data => {
+                if (data.trim() === "") {
+                    button.style.display = "none";
+                } else {
+                    container.insertAdjacentHTML("beforeend", data);
+                }
+                loading = false;
+            })
+            .catch(error => {
+                console.error("Error:", error);
+                loading = false;
+            });
+    });
+}
