@@ -1,19 +1,23 @@
-<?php require "includes/header.php" ?>
-<?php require "database/connection.php" ?>
+<?php require "includes/header.php"; ?>
+<?php require "database/connection.php"; ?>
 
 <?php
-
 $id = $_GET['id'] ?? null;
 
 if (!$id) {
     die("Geen auto gekozen.");
 }
 
-$stmt = $conn->prepare("SELECT * FROM auto WHERE id = :id");
-$stmt->bindValue(':id', (int)$id, PDO::PARAM_INT);
-$stmt->execute();
+try {
+    $stmt = $pdo->prepare("SELECT * FROM auto WHERE id = :id");
+    $stmt->bindValue(':id', (int)$id, PDO::PARAM_INT);
+    $stmt->execute();
 
-$car = $stmt->fetch(PDO::FETCH_ASSOC);
+    $car = $stmt->fetch(PDO::FETCH_ASSOC);
+
+} catch (PDOException $e) {
+    die("Database fout: " . $e->getMessage());
+}
 
 if (!$car) {
     die("Auto niet gevonden.");
@@ -32,7 +36,7 @@ if (!$car) {
                     </p>
 
                     <img src="assets/images/products/<?= htmlspecialchars($car['image']) ?>" alt="">
-                    <img src="assets/images/header-circle-background.svg" alt="" class="background-header-element">
+                    <img src="/assets/images/header-circle-background.svg" alt="" class="background-header-element">
                 </div>
             </div>
 
@@ -40,12 +44,12 @@ if (!$car) {
                 <h2><?= htmlspecialchars($car['naam']) ?></h2>
 
                 <div class="rating">
-                    <span class="stars stars-4"></span>
-                    <span>440+ reviewers</span>
+                    <span class="<?= htmlspecialchars($car['star'] ?? '') ?>"></span>
+                    <span><?= htmlspecialchars($car['reviews'] ?? 0) ?>+ Reviews</span>
                 </div>
 
                 <p>
-                    <?= htmlspecialchars($car['description'] ?? 'Geen beschrijving beschikbaar.') ?>
+                    <?= htmlspecialchars($car['details'] ?? 'Geen beschrijving beschikbaar.') ?>
                 </p>
 
                 <div class="car-type">
@@ -90,4 +94,4 @@ if (!$car) {
         </div>
     </main>
 
-<?php require "includes/footer.php" ?>
+<?php require "includes/footer.php"; ?>

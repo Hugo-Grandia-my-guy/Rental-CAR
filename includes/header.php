@@ -1,4 +1,9 @@
-<?php session_start(); ?>
+<?php
+session_start();
+$userId = $_SESSION['id'] ?? null;
+session_write_close();
+?>
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -32,13 +37,13 @@
         </ul>
     </nav>
     <div class="menu">
-        <?php if(isset($_SESSION['id'])){ ?>
+        <?php if($userId){ ?>
         <div class="account">
-            <img src="assets/images/profil.WEBP" alt="">
+            <img src="/assets/images/Profil.WEBP" alt="">
             <div class="account-dropdown">
                 <ul>
-                    <li><img src="assets/images/icons/setting.svg" alt=""><a href="#">Naar account</a></li>
-                    <li><img src="assets/images/icons/logout.svg" alt=""><a href="/logout">Uitloggen</a></li>
+                    <li><img src="/assets/images/icons/setting.svg" alt=""><a href="/settings">Naar account</a></li>
+                    <li><img src="/assets/images/icons/logout.svg" alt=""><a href="/logout">Uitloggen</a></li>
                 </ul>
             </div>
         </div>

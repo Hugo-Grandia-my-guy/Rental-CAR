@@ -1,10 +1,15 @@
-<?php require "includes/header.php" ?>
-<?php require "database/connection.php" ?>
+<?php require "includes/header.php"; ?>
+<?php require "database/connection.php"; ?>
 
 <?php
-$stmt = $conn->query("SELECT * FROM auto LIMIT 12");
-$cars = $stmt->fetchAll(PDO::FETCH_ASSOC);
+try {
+    $stmt = $pdo->query("SELECT * FROM auto LIMIT 12");
+    $cars = $stmt->fetchAll(PDO::FETCH_ASSOC);
+} catch (PDOException $e) {
+    die("Verzoekfout: " . $e->getMessage());
+}
 ?>
+
     <header>
         <div class="advertorials">
             <div class="advertorial">
@@ -27,7 +32,8 @@ $cars = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <main>
         <h2 class="section-title">Populaire auto's</h2>
         <div class="cars">
-            <?php foreach (array_slice($cars, 0, 4) as $car) : ?>
+            <?php for ($i = 0; $i < 4 && $i < count($cars); $i++):
+                $car = $cars[$i]; ?>
                 <div class="car-details">
                     <div class="car-brand">
                         <h3><?= htmlspecialchars($car['naam']) ?></h3>
@@ -39,21 +45,23 @@ $cars = $stmt->fetchAll(PDO::FETCH_ASSOC);
                     <img src="assets/images/products/<?= htmlspecialchars($car['image']) ?>" alt="">
 
                     <div class="car-specification">
-                        <span><img src="/assets/images/icons/gas-station.svg"> <?= $car['gasoline'] ?>l</span>
-                        <span><img src="/assets/images/icons/car.svg"> <?= $car['steering'] ?></span>
-                        <span><img src="/assets/images/icons/profile-2user.svg"> <?= $car['capacity'] ?> Personen</span>
+                        <span><img src="/assets/images/icons/gas-station.svg"> <?= htmlspecialchars($car['gasoline']) ?>l</span>
+                        <span><img src="/assets/images/icons/car.svg"> <?= htmlspecialchars($car['steering']) ?></span>
+                        <span><img src="/assets/images/icons/profile-2user.svg"> <?= htmlspecialchars($car['capacity']) ?> Personen</span>
                     </div>
 
                     <div class="rent-details">
-                        <span><span class="font-weight-bold">€<?= $car['kosten'] ?></span> / dag</span>
+                        <span><span class="font-weight-bold">€<?= htmlspecialchars($car['kosten']) ?></span> / dag</span>
                         <a href="/car-detail?id=<?= $car['id'] ?>" class="button-primary">Bekijk nu</a>
                     </div>
                 </div>
-            <?php endforeach; ?>
+            <?php endfor; ?>
         </div>
+
         <h2 class="section-title">Aanbevolen auto's</h2>
         <div class="cars">
-            <?php foreach (array_slice($cars, 4, 8) as $car) : ?>
+            <?php for ($i = 4; $i < 12 && $i < count($cars); $i++):
+                $car = $cars[$i]; ?>
                 <div class="car-details">
                     <div class="car-brand">
                         <h3><?= htmlspecialchars($car['naam']) ?></h3>
@@ -65,21 +73,22 @@ $cars = $stmt->fetchAll(PDO::FETCH_ASSOC);
                     <img src="assets/images/products/<?= htmlspecialchars($car['image']) ?>" alt="">
 
                     <div class="car-specification">
-                        <span><img src="/assets/images/icons/gas-station.svg"> <?= $car['gasoline'] ?>l</span>
-                        <span><img src="/assets/images/icons/car.svg"> <?= $car['steering'] ?></span>
-                        <span><img src="/assets/images/icons/profile-2user.svg"> <?= $car['capacity'] ?> Personen</span>
+                        <span><img src="/assets/images/icons/gas-station.svg"> <?= htmlspecialchars($car['gasoline']) ?>l</span>
+                        <span><img src="/assets/images/icons/car.svg"> <?= htmlspecialchars($car['steering']) ?></span>
+                        <span><img src="/assets/images/icons/profile-2user.svg"> <?= htmlspecialchars($car['capacity']) ?> Personen</span>
                     </div>
 
                     <div class="rent-details">
-                        <span><span class="font-weight-bold">€<?= $car['kosten'] ?></span> / dag</span>
+                        <span><span class="font-weight-bold">€<?= htmlspecialchars($car['kosten']) ?></span> / dag</span>
                         <a href="/car-detail?id=<?= $car['id'] ?>" class="button-primary">Bekijk nu</a>
                     </div>
                 </div>
-            <?php endforeach; ?>
+            <?php endfor; ?>
         </div>
-    <div class="show-more">
-        <a class="button-primary" href="/ons-aanbod">Toon alle</a>
-    </div>
+
+        <div class="show-more">
+            <a class="button-primary" href="/ons-aanbod">Toon alle</a>
+        </div>
     </main>
 
-<?php require "includes/footer.php" ?>
+<?php require "includes/footer.php"; ?>
