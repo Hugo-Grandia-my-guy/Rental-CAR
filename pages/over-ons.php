@@ -10,7 +10,7 @@
                 een keer binnen? De koffie staat klaar.</p>
         </div>
         <div class="row">
-            <img src="assets/images/work-place.WEBP" alt="" width="400">
+            <img src="/assets/images/work-place.WEBP" alt="" width="400">
         </div>
     </div>
     <div class="team">
@@ -19,8 +19,8 @@
         <div class="team-grid">
 
             <div class="member">
-                <img src="assets/images/team/brian-mensah.WEBP" alt="Bryan Mensah, CEO van Rydr" width="200">
-                <h3>Bryan Mensah</h3>
+                <img src="/assets/images/team/brian-mensah.WEBP" alt="Brian Mensah, CEO van Rydr" width="200">
+                <h3>Brian Mensah</h3>
                 <p><strong>CEO</strong></p>
                 <p>Stuurt de visie van Rydr en bouwt aan de toekomst van mobiliteit.<br>
                 een cruciale rol in de ondersteuning van verschillende bedrijfsfuncties, variërend van HR tot administratie.<br>

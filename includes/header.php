@@ -1,11 +1,10 @@
 <?php
 session_start();
 $userId = $_SESSION['id'] ?? null;
-session_write_close();
 ?>
 
 <!doctype html>
-<html lang="en">
+<html lang="nl">
 <head>
     <meta charset="ISO-8859-1">
     <meta name="viewport"

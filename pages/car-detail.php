@@ -32,7 +32,7 @@ if (!$car) {
                     <h2><?= htmlspecialchars($car['naam']) ?></h2>
 
                     <p>
-                        <?= htmlspecialchars($car['description'] ?? 'Geen beschrijving beschikbaar.') ?>
+                        <?= htmlspecialchars($car['kort-beschrijving'] ?? 'Geen beschrijving beschikbaar.') ?>
                     </p>
 
                     <img src="assets/images/products/<?= htmlspecialchars($car['image']) ?>" alt="">
