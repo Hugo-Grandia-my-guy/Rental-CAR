@@ -2,15 +2,15 @@
 <footer>
     <div class="brand">
         <h2>Rydr.</h2>
-        <p>Stap in. Rij weg. Simpel.</p>
+        <p>Rij op wegen en ga je dromen beleven.</p>
     </div>
     <div class="footer-links">
         <div class="links">
             <h3>Over ons</h3>
             <ul>
                 <li><a href="/over-ons">Het team</a></li>
-                <li><a href="#">Onze visie</a></li>
-                <li><a href="#">Vacatures</a></li>
+                <li><a href="/over-ons">Onze visie</a></li>
+                <li><a href="/over-ons">Vacatures</a></li>
             </ul>
         </div>
         <div class="links">

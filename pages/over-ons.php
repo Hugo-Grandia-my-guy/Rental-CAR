@@ -7,7 +7,9 @@
             <p>Ons hoofdkantoor bevindt zich in het bruisende hart van Rotterdam, direct naast het Centraal Station.
                 Hier combineren we technologie, design en klantgerichtheid onder één dak.</p>
             <p> In een modern pand met uitzicht op de skyline werken we elke dag aan de mobiliteit van morgen. Loop je
-                een keer binnen? De koffie staat klaar.</p>
+                een keer binnen? De koffie staat klaar.<br><br>
+                wij geloven in een toekomst waarin mobiliteit simpel, toegankelijk en duurzaam is. <br>
+                Met een goede atmosfeer rond het kantoor. </p>
         </div>
         <div class="row">
             <img src="/assets/images/work-place.WEBP" alt="" width="400">
@@ -24,7 +26,7 @@
                 <p><strong>CEO</strong></p>
                 <p>Stuurt de visie van Rydr en bouwt aan de toekomst van mobiliteit.<br>
                 een cruciale rol in de ondersteuning van verschillende bedrijfsfuncties, variërend van HR tot administratie.<br>
-                Ze zorgen ervoor dat interne processen efficiënt verlopen en bieden de benodigde ondersteuning aan medewerkers om hun taken uit te voeren.</p>
+                hij zorgt ervoor dat interne processen efficiënt verlopen en bieden de benodigde ondersteuning aan medewerkers om hun taken uit te voeren.</p>
             </div>
 
             <div class="member">
