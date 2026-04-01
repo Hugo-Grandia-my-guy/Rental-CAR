@@ -41,7 +41,7 @@
     </div>
     <div class="legal-links">
         <ul>
-            <li><a href="#">Privacy & Policy</a></li>
+            <li><a href="/privacy-policy">Privacy & Policy</a></li>
             <li><a href="#">Terms & Condition</a></li>
         </ul>
     </div>
