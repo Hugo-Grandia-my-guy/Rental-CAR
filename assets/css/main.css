@@ -479,5 +479,9 @@ footer .footer-links .links ul a {
 .account-form label {
   margin-bottom: 1em;
 }
+#event {
+  margin-left: 8%;
+  text-align: center;
+}
 
 /*# sourceMappingURL=main.css.map */

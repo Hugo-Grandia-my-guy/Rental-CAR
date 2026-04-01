@@ -16,7 +16,7 @@
         <div class="links">
             <h3>Community</h3>
             <ul>
-                <li><a href="#">Events</a></li>
+                <li><a href="/event">Events</a></li>
                 <li><a href="#">Blog</a></li>
                 <li><a href="#">Podcast</a></li>
                 <li><a href="#">Invite a friend</a></li>
