@@ -17,7 +17,7 @@
         </div>
         <div class="contact-item">
             <img src="/assets/images/email.WEBP" alt="E-mail" style = "width: 16px; height: 18px;"> 
-            <span> <p>  info@rydr.nl</p> </span>
+            <span>info@rydr.nl</span>
         </div>
         <div class="contact-item">
             <img src="/assets/images/hoofdvestiging.WEBP" alt="Locatie" style = "width: 360px; height: 240px;">

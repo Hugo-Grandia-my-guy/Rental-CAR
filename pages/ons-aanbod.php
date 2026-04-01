@@ -3,19 +3,46 @@
 
 <?php
 $limit = 10;
+$search = $_GET['q'] ?? '';
 
 try {
-    $stmt = $pdo->prepare("
+
+    $sql = "
         SELECT id, naam, type, image, gasoline, steering, capacity, kosten
         FROM auto
-        ORDER BY id DESC
-        LIMIT :limit
-    ");
+    ";
+
+    $params = [];
+
+    if (!empty($search)) {
+        $sql .= " WHERE naam LIKE :search OR type LIKE :search ";
+        $params[':search'] = "%$search%";
+    }
+
+    $sql .= " ORDER BY id DESC LIMIT :limit";
+
+    $stmt = $pdo->prepare($sql);
+
+    foreach ($params as $key => $value) {
+        $stmt->bindValue($key, $value, PDO::PARAM_STR);
+    }
+
     $stmt->bindValue(':limit', $limit, PDO::PARAM_INT);
     $stmt->execute();
+
     $cars = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-    $totalCars = $pdo->query("SELECT COUNT(*) FROM auto")->fetchColumn();
+    if (!empty($search)) {
+        $countStmt = $pdo->prepare("
+            SELECT COUNT(*) FROM auto 
+            WHERE naam LIKE :search OR type LIKE :search
+        ");
+        $countStmt->bindValue(':search', "%$search%");
+        $countStmt->execute();
+        $totalCars = $countStmt->fetchColumn();
+    } else {
+        $totalCars = $pdo->query("SELECT COUNT(*) FROM auto")->fetchColumn();
+    }
 
 } catch (PDOException $e) {
     die("Database fout: " . $e->getMessage());
@@ -28,34 +55,40 @@ $hasMore = $totalCars > $limit;
         <h2>Ons aanbod</h2>
 
         <div class="cars" id="cars-container">
-            <?php foreach ($cars as $car): ?>
-                <div class="car-details">
-                    <div class="car-brand">
-                        <h3><?= htmlspecialchars($car['naam']) ?></h3>
-                        <div class="car-type">
-                            <?= htmlspecialchars($car['type']) ?>
+            <?php if (empty($cars)): ?>
+                <p style="font-size: 18px; margin: 20px 0;">
+                    Geen auto gevonden voor "<?= htmlspecialchars($search) ?>"
+                </p>
+            <?php else: ?>
+                <?php foreach ($cars as $car): ?>
+                    <div class="car-details">
+                        <div class="car-brand">
+                            <h3><?= htmlspecialchars($car['naam']) ?></h3>
+                            <div class="car-type">
+                                <?= htmlspecialchars($car['type']) ?>
+                            </div>
                         </div>
-                    </div>
 
-                    <img src="assets/images/products/<?= htmlspecialchars($car['image']) ?>" alt="">
+                        <img src="assets/images/products/<?= htmlspecialchars($car['image']) ?>" alt="">
 
-                    <div class="car-specification">
-                        <span><img src="/assets/images/icons/gas-station.svg"> <?= htmlspecialchars($car['gasoline']) ?>l</span>
-                        <span><img src="/assets/images/icons/car.svg"> <?= htmlspecialchars($car['steering']) ?></span>
-                        <span><img src="/assets/images/icons/profile-2user.svg"> <?= htmlspecialchars($car['capacity']) ?> Personen</span>
-                    </div>
+                        <div class="car-specification">
+                            <span><img src="/assets/images/icons/gas-station.svg"> <?= htmlspecialchars($car['gasoline']) ?>l</span>
+                            <span><img src="/assets/images/icons/car.svg"> <?= htmlspecialchars($car['steering']) ?></span>
+                            <span><img src="/assets/images/icons/profile-2user.svg"> <?= htmlspecialchars($car['capacity']) ?> Personen</span>
+                        </div>
 
-                    <div class="rent-details">
+                        <div class="rent-details">
                     <span>
                         <span class="font-weight-bold">€<?= htmlspecialchars($car['kosten']) ?></span> / dag
                     </span>
-                        <a href="/car-detail?id=<?= $car['id'] ?>" class="button-primary">Bekijk nu</a>
+                            <a href="/car-detail?id=<?= $car['id'] ?>" class="button-primary">Bekijk nu</a>
+                        </div>
                     </div>
-                </div>
-            <?php endforeach; ?>
+                <?php endforeach; ?>
+            <?php endif; ?>
         </div>
 
-        <?php if ($hasMore): ?>
+        <?php if ($hasMore && !empty($cars)): ?>
             <div class="show-more">
                 <button id="loadMoreBtn" class="button-primary">Toon meer</button>
             </div>
@@ -77,7 +110,7 @@ $hasMore = $totalCars > $limit;
             }
 
             loadMoreBtn.addEventListener('click', () => {
-                fetch(`/database/load-more-cars.php?page=${page}`)
+                fetch(`/database/load-more-cars.php?page=${page}&q=<?= urlencode($search) ?>`)
                     .then(res => res.text())
                     .then(data => {
                         if (!data.trim()) {

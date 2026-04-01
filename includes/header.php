@@ -24,9 +24,16 @@ $userId = $_SESSION['id'] ?? null;
             Rydr.
         </a>
     </div>
-    <form action="">
-        <input type="search" name="" id="" placeholder="Welke auto wilt u huren?">
-        <img src="/assets/images/icons/search-normal.svg" alt="" class="search-icon">
+    <form method="GET" action="/ons-aanbod">
+        <input
+                type="search"
+                name="q"
+                placeholder="Welke auto wilt u huren?"
+                value="<?= htmlspecialchars($_GET['q'] ?? '') ?>"
+        >
+        <button type="submit" style="background: none; border: none;">
+            <img src="/assets/images/icons/search-normal.svg" alt="" class="search-icon">
+        </button>
     </form>
     <nav>
         <ul>
