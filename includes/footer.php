@@ -17,18 +17,18 @@
             <h3>Community</h3>
             <ul>
                 <li><a href="/event">Events</a></li>
-                <li><a href="#">Blog</a></li>
-                <li><a href="#">Podcast</a></li>
-                <li><a href="#">Invite a friend</a></li>
+                <li><a href="/blog">Blog</a></li>
+                <li><a href="https://www.youtube.com/watch?v=Aq5WXmQQooo">Podcast</a></li>
+                <li><a href="https://www.youtube.com/watch?v=Aq5WXmQQooo">Invite a friend</a></li>
             </ul>
         </div>
         <div class="links">
             <h3>Socials</h3>
             <ul>
-                <li><a href="#">Discord</a></li>
-                <li><a href="#">Instagram</a></li>
-                <li><a href="#">Twitter</a></li>
-                <li><a href="#">Facebook</a></li>
+                <li><a href="https://www.youtube.com/watch?v=Aq5WXmQQooo">Discord</a></li>
+                <li><a href="https://www.youtube.com/watch?v=Aq5WXmQQooo">Instagram</a></li>
+                <li><a href="https://www.youtube.com/watch?v=Aq5WXmQQooo">Twitter</a></li>
+                <li><a href="https://www.youtube.com/watch?v=Aq5WXmQQooo">Facebook</a></li>
             </ul>
         </div>
     </div>

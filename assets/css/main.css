@@ -480,8 +480,15 @@ footer .footer-links .links ul a {
   margin-bottom: 1em;
 }
 #event {
-  margin-left: 8%;
-  text-align: center;
+  margin-left: 10%;
+  text-align: left;
 }
-
+#contact {
+  margin-left: 8px;
+  text-align: left;
+}
+#blog {
+  margin-left: 8px;
+  text-align: left;
+}
 /*# sourceMappingURL=main.css.map */

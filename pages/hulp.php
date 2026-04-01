@@ -3,10 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Hulp</title>
 </head>
 <body>
 <?php require "includes/header.php"; ?>
+<div id="contact">
     <h2>  Hulp nodig?</h2>
     <p>  Heb je vragen of hulp nodig? Neem gerust contact met ons op. We staan klaar om je te helpen!</p>
 
@@ -17,7 +18,7 @@
         </div>
         <div class="contact-item">
             <img src="/assets/images/email.WEBP" alt="E-mail" style = "width: 16px; height: 18px;"> 
-            <span> <p>  info@rydr.nl</p> </span>
+            <span>  info@rydr.nl </span>
         </div>
         <div class="contact-item">
             <img src="/assets/images/hoofdvestiging.WEBP" alt="Locatie" style = "width: 360px; height: 240px;">
@@ -27,7 +28,7 @@
             </span>
         </div>
     </div>
-
+</div>
 </body>
 </html>
 <?php require "includes/footer.php"; ?>
