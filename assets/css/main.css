@@ -469,6 +469,7 @@ footer .footer-links .links ul a {
   flex-direction: column;
   max-width: 600px;
 }
+
 .account-form input {
   background-color: #F6F7F9;
   border: none;
@@ -476,9 +477,11 @@ footer .footer-links .links ul a {
   padding: 1em 2em;
   border-radius: 10px;
 }
+
 .account-form label {
   margin-bottom: 1em;
 }
+
 #event {
   margin-left: 10%;
   text-align: left;
