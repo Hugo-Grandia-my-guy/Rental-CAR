@@ -44,3 +44,40 @@ const button = document.getElementById("loadMoreBtn");
 const container = document.getElementById("cars-container");
 
 let loading = false;
+
+let page = 2;
+const limit = 10;
+const totalCars = <?= (int)$totalCars ?>;   //Er is geen fouten
+let loadedCars = <?= count($cars) ?>;       //En hier ook
+
+const loadMoreBtn = document.getElementById('loadMoreBtn');
+
+if (loadMoreBtn) {
+
+    if (loadedCars >= totalCars) {
+        loadMoreBtn.style.display = 'none';
+    }
+
+    loadMoreBtn.addEventListener('click', () => {
+        fetch(`/database/load-more-cars.php?page=${page}&q=<?= urlencode($search) ?>`)
+            .then(res => res.text())
+            .then(data => {
+                if (!data.trim()) {
+                    loadMoreBtn.style.display = 'none';
+                    return;
+                }
+
+                document
+                    .getElementById('cars-container')
+                    .insertAdjacentHTML('beforeend', data);
+
+                page++;
+                loadedCars += limit;
+
+                if (loadedCars >= totalCars) {
+                    loadMoreBtn.style.display = 'none';
+                }
+            })
+            .catch(console.error);
+    });
+}
