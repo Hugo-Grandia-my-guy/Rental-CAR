@@ -44,7 +44,7 @@ if (!$car) {
                 <h2><?= htmlspecialchars($car['naam']) ?></h2>
 
                 <div class="rating">
-                    <span class="<?= htmlspecialchars($car['star'] ?? '') ?>"></span>
+                    <div class = "stars"><span class="<?= htmlspecialchars($car['star'] ?? '') ?>"></span></div>
                     <span><?= htmlspecialchars($car['reviews'] ?? 0) ?>+ Reviews</span>
                 </div>
 
