@@ -61,8 +61,40 @@
 
         </div>
     </div>
-
+    <div class="form-container">
+        <h2><i>Contacteer ons:als geintreseerd bent met werken bij Rydr</i></h2>
+        <form action="mailto:info@rydr.nl" method="post" enctype="text/plain">
+            <input type="text" name="naam" placeholder="Naam" required>
+            <input type="email" name="email" placeholder="E-mail" required>
+            <input type="tel" name="telefoon" placeholder="Telefoonnummer" required>
+            <button type="submit" style = "width: 100%; padding: 12px; background: linear-gradient(135deg, #007BFF, #00c6ff); color: white; border: none; border-radius: 8px; font-size: 16px; cursor: pointer; transition: 0.3s;">Versturen</button>
+            
+        </form>
+    </div>
 </main>
-
-
+<style>
+.form-container 
+{
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 12px;
+    width: 350px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    animation: fadeIn 0.6s ease-in-out;
+  }
+  h2 
+  {
+    color: #3563E9;
+  }
+    input 
+    {
+        width: 100%;
+        padding: 12px;
+        margin: 10px 0;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        font-size: 14px;
+        transition: border-color 0.3s;
+    }
+</style>
 <?php require "includes/footer.php" ?>

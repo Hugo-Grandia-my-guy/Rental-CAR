@@ -1,7 +1,7 @@
 
 <footer>
     <div class="brand">
-        <h2>Rydr.</h2>
+        <h2 style = "color: #3563E9;">Rydr.</h2>
         <p>Rij op wegen en ga je dromen beleven.</p>
     </div>
     <div class="footer-links">
@@ -42,7 +42,7 @@
     <div class="legal-links">
         <ul>
             <li><a href="/privacy-policy">Privacy & Policy</a></li>
-            <li><a href="#">Terms & Condition</a></li>
+            <li><a href="/terms-condition">Terms & Condition</a></li>
         </ul>
     </div>
 </div>
