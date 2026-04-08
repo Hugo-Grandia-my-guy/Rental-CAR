@@ -47,9 +47,9 @@ try {
             <img src="assets/images/products/<?= htmlspecialchars($car['image']) ?>" alt="">
 
             <div class="car-specification">
-                <span><?= htmlspecialchars($car['gasoline']) ?>l</span>
-                <span><?= htmlspecialchars($car['steering']) ?></span>
-                <span><?= htmlspecialchars($car['capacity']) ?> Personen</span>
+                <span><img src="/assets/images/icons/gas-station.svg" alt=""><?= htmlspecialchars($car['gasoline']) ?>l</span>
+                <span><img src="/assets/images/icons/car.svg" alt=""><?= htmlspecialchars($car['steering']) ?></span>
+                <span><img src="/assets/images/icons/profile-2user.svg" alt=""><?= htmlspecialchars($car['capacity']) ?> Personen</span>
             </div>
 
             <div class="rent-details">

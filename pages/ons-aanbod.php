@@ -107,12 +107,12 @@ $hasMore = $totalCars > $limit;
     <style>
         .catalog-layout {
             display: flex;
-            gap: 30px;
+            gap: 20px;
         }
 
         .filters {
-            width: 200px;
-            background: #F3F5F7;
+            width: 13%;
+            background: white;
             padding: 20px;
             border-radius: 12px;
         }
@@ -154,16 +154,22 @@ $hasMore = $totalCars > $limit;
         }
 
         .car-details {
-            width: 100%;
+            break-inside: avoid;
+            grid-auto-columns: auto;
+            width: 300px;
             background: white;
-            border-radius: 12px;
-            padding: 16px;
+            border-radius: 10px;
+            padding: 10px;
             box-sizing: border-box;
             transition: 0.2s ease;
         }
 
         .car-details:hover {
-            transform: translateY(-4px);
+            transform: translateY(-2px);
+        }
+        .catalog-content{
+            column-count: 3;
+            gap: 20px;
         }
     </style>
 
@@ -239,7 +245,7 @@ $hasMore = $totalCars > $limit;
 
                 <?php if ($hasMore && !empty($cars)): ?>
                     <div class="show-more">
-                        <button id="loadMoreBtn" class="button-primary">Toon meer</button>
+                        <button id="loadMoreBtn" class="button-primary" style="cursor: pointer">Toon meer</button>
                     </div>
                 <?php endif; ?>
 

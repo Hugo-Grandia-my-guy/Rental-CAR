@@ -62,7 +62,7 @@
         </div>
     </div>
     <div class="form-container">
-        <h2><i>Contacteer ons:als geintreseerd bent met werken bij Rydr</i></h2>
+        <h2><i>Contacteer ons: als geïnteresseerd bent met werken bij Rydr</i></h2>
         <form action="mailto:info@rydr.nl" method="post" enctype="text/plain">
             <input type="text" name="naam" placeholder="Naam" required>
             <input type="email" name="email" placeholder="E-mail" required>
@@ -72,6 +72,7 @@
         </form>
     </div>
 </main>
+
 <style>
 .form-container 
 {
