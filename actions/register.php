@@ -7,7 +7,8 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     exit;
 }
 
-if (!isset($_POST['csrf_token'], $_SESSION['csrf_token']) ||
+if (
+    !isset($_POST['csrf_token'], $_SESSION['csrf_token']) ||
     !hash_equals($_SESSION['csrf_token'], $_POST['csrf_token'])
 ) {
     $_SESSION['message'] = "Sessie verlopen, probeer opnieuw";
@@ -15,42 +16,56 @@ if (!isset($_POST['csrf_token'], $_SESSION['csrf_token']) ||
     exit;
 }
 
-$email = filter_var(trim($_POST['email']), FILTER_SANITIZE_EMAIL);
-$password = $_POST['password'];
-$confirm_password = $_POST['confirm-password'];
+$email = trim($_POST['email'] ?? '');
+$password = $_POST['password'] ?? '';
+$confirm = $_POST['confirm-password'] ?? '';
 
-if ($password !== $confirm_password) {
-    $_SESSION['message'] = "Wachtwoorden komen niet overeen.";
-    $_SESSION['email'] = htmlspecialchars($email);
+if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+    $_SESSION['message'] = "Ongeldig e-mailadres";
+    $_SESSION['email'] = $email;
+    header("Location: /register-form");
+    exit;
+}
+
+if ($password !== $confirm) {
+    $_SESSION['message'] = "Wachtwoorden komen niet overeen";
+    $_SESSION['email'] = $email;
+    header("Location: /register-form");
+    exit;
+}
+
+if (strlen($password) < 6) {
+    $_SESSION['message'] = "Wachtwoord moet minimaal 6 tekens zijn";
+    $_SESSION['email'] = $email;
     header("Location: /register-form");
     exit;
 }
 
 try {
-    $stmt = $pdo->prepare("SELECT id FROM account WHERE email = :email");
-    $stmt->bindValue(":email", $email, PDO::PARAM_STR);
-    $stmt->execute();
-
-    if ($stmt->rowCount() > 0) {
-        $_SESSION['message'] = "Dit e-mailadres is al in gebruik.";
-        $_SESSION['email'] = htmlspecialchars($email);
-        header("Location: /register-form");
-        exit;
-    }
-
     $hash = password_hash($password, PASSWORD_DEFAULT);
 
-    $insert = $pdo->prepare("INSERT INTO account (email, password) VALUES (:email, :password)");
-    $insert->bindValue(":email", $email, PDO::PARAM_STR);
-    $insert->bindValue(":password", $hash, PDO::PARAM_STR);
-    $insert->execute();
+    $stmt = $pdo->prepare("
+        INSERT INTO account (email, password) 
+        VALUES (:email, :password)
+    ");
 
-    $_SESSION['success'] = "Registratie is gelukt, log nu in";
+    $stmt->execute([
+        ':email' => $email,
+        ':password' => $hash
+    ]);
+
+    $_SESSION['success'] = "Registratie gelukt, log in";
     header("Location: /login-form");
     exit;
 
 } catch (PDOException $e) {
-    $_SESSION['message'] = "Database fout: " . $e->getMessage();
+    if ($e->getCode() == 23000) {
+        $_SESSION['message'] = "Dit e-mailadres is al in gebruik";
+    } else {
+        $_SESSION['message'] = "Database fout";
+    }
+
+    $_SESSION['email'] = $email;
     header("Location: /register-form");
     exit;
 }
