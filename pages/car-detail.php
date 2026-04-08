@@ -84,7 +84,7 @@ if (!$car) {
                         </div>
 
                         <div class="row">
-                            <a href="#" class="button-primary">Huur nu</a>
+                            <a href="/betaal" class="button-primary">Huur nu</a>
                         </div>
                     </div>
 
