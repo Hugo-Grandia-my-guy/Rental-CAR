@@ -60,3 +60,7 @@ $userId = $_SESSION['id'] ?? null;
     </div>
 </div>
 <div class="content">
+
+    <script>
+        window.isLoggedIn = <?= isset($_SESSION['id']) ? 'true' : 'false' ?>;
+    </script>

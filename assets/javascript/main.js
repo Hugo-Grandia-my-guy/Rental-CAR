@@ -16,7 +16,6 @@ if (account) {
     });
 }
 
-
 const modal = document.getElementById('loginModal');
 const openButtons = document.querySelectorAll('[data-open-login]');
 const closeButton = document.querySelector('.modal-close');
@@ -54,4 +53,23 @@ document.addEventListener('keydown', function (e) {
         modal.classList.add('hidden');
         document.body.style.overflow = '';
     }
+});
+
+const rentButtons = document.querySelectorAll('.rent-button');
+
+rentButtons.forEach(button => {
+    button.addEventListener('click', function (e) {
+
+        if (!window.isLoggedIn) {
+            e.preventDefault();
+
+            sessionStorage.setItem('redirectAfterLogin', button.getAttribute('href'));
+
+            if (modal) {
+                modal.classList.remove('hidden');
+                document.body.style.overflow = 'hidden';
+            }
+        }
+
+    });
 });
