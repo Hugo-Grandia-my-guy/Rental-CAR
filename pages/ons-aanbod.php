@@ -242,15 +242,13 @@ $hasMore = $totalCars > $limit;
                         <?php endforeach; ?>
                     <?php endif; ?>
                 </div>
-
-                <?php if ($hasMore && !empty($cars)): ?>
-                    <div class="show-more">
-                        <button id="loadMoreBtn" class="button-primary" style="cursor: pointer">Toon meer</button>
-                    </div>
-                <?php endif; ?>
-
             </div>
         </div>
+        <?php if ($hasMore && !empty($cars)): ?>
+            <div class="show-more">
+                <button id="loadMoreBtn" class="button-primary" style="cursor: pointer">Toon meer</button>
+            </div>
+        <?php endif; ?>
     </main>
 
     <script>
