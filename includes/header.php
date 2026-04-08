@@ -54,7 +54,7 @@ $userId = $_SESSION['id'] ?? null;
             </div>
         </div>
         <?php }else{ ?>
-            <a href="" class="button-primary">Start met huren</a>
+            <a href="#" class="button-primary" data-open-login>Start met huren</a>
         <?php } ?>
 
     </div>

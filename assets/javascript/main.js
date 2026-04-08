@@ -1,41 +1,57 @@
-const accountImage = document.querySelector('.account img');
-if (accountImage) {
-    accountImage.addEventListener('click', function () {
-        const account = this.closest('.account');
+
+const account = document.querySelector('.account');
+
+if (account) {
+    const accountImage = account.querySelector('img');
+
+    accountImage.addEventListener('click', function (e) {
+        e.stopPropagation();
         account.classList.toggle('active');
     });
 
     document.addEventListener('click', function (e) {
-        const account = document.querySelector('.account');
-        if (account && !account.contains(e.target)) {
+        if (!account.contains(e.target)) {
             account.classList.remove('active');
         }
     });
 }
 
-const startButton = document.querySelector('.button-primary');
-if (startButton) {
-    startButton.addEventListener('click', function(e) {
-        e.preventDefault();
-        const modal = document.getElementById('loginModal');
-        if (modal) modal.classList.remove('hidden');
-    });
-}
-
-const modalClose = document.querySelector('.modal-close');
-if (modalClose) {
-    modalClose.addEventListener('click', function () {
-        const modal = document.getElementById('loginModal');
-        if (modal) modal.classList.add('hidden');
-    });
-}
 
 const modal = document.getElementById('loginModal');
-if (modal) {
-    modal.addEventListener('click', function (e) {
-        if (e.target === this) {
-            this.classList.add('hidden');
+const openButtons = document.querySelectorAll('[data-open-login]');
+const closeButton = document.querySelector('.modal-close');
+
+openButtons.forEach(btn => {
+    btn.addEventListener('click', function (e) {
+        e.preventDefault();
+        if (modal) {
+            modal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+    });
+});
+
+if (closeButton) {
+    closeButton.addEventListener('click', function () {
+        if (modal) {
+            modal.classList.add('hidden');
+            document.body.style.overflow = '';
         }
     });
 }
 
+if (modal) {
+    modal.addEventListener('click', function (e) {
+        if (e.target === modal) {
+            modal.classList.add('hidden');
+            document.body.style.overflow = '';
+        }
+    });
+}
+
+document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && modal && !modal.classList.contains('hidden')) {
+        modal.classList.add('hidden');
+        document.body.style.overflow = '';
+    }
+});
