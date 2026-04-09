@@ -168,7 +168,6 @@ $hasMore = $totalCars > $limit;
             transform: translateY(-2px);
         }
         .catalog-content{
-            display: grid;
             column-count: 3;
             gap: 20px;
         }
@@ -187,20 +186,29 @@ $hasMore = $totalCars > $limit;
                     <div class="filter-group">
                         <h4>TYPE</h4>
 
-                        <label><input type="checkbox" name="type[]" value="modern" <?= in_array('modern', $types) ? 'checked' : '' ?>> modern</label>
-                        <label><input type="checkbox" name="type[]" value="crossover" <?= in_array('crossover', $types) ? 'checked' : '' ?>> crossover</label>
-                        <label><input type="checkbox" name="type[]" value="luxe" <?= in_array('luxe', $types) ? 'checked' : '' ?>> luxe</label>
-                        <label><input type="checkbox" name="type[]" value="off-road" <?= in_array('off-road', $types) ? 'checked' : '' ?>> off-road</label>
-                        <label><input type="checkbox" name="type[]" value="elektrisch" <?= in_array('elektrisch', $types) ? 'checked' : '' ?>> elektrisch</label>
+                        <label><input type="checkbox" name="type[]" value="modern" <?= in_array('modern', $types) ? 'checked' : '' ?>>
+                            modern</label>
+                        <label><input type="checkbox" name="type[]" value="crossover" <?= in_array('crossover', $types) ? 'checked' : '' ?>>
+                            crossover</label>
+                        <label><input type="checkbox" name="type[]" value="luxe" <?= in_array('luxe', $types) ? 'checked' : '' ?>>
+                            luxe</label>
+                        <label><input type="checkbox" name="type[]" value="off-road" <?= in_array('off-road', $types) ? 'checked' : '' ?>>
+                            off-road</label>
+                        <label><input type="checkbox" name="type[]" value="elektrisch" <?= in_array('elektrisch', $types) ? 'checked' : '' ?>>
+                            elektrisch</label>
                     </div>
 
                     <div class="filter-group">
                         <h4>CAPACITY</h4>
 
-                        <label><input type="checkbox" name="capacity[]" value="2" <?= in_array('2', $capacities) ? 'checked' : '' ?>> 2 Person</label>
-                        <label><input type="checkbox" name="capacity[]" value="4" <?= in_array('4', $capacities) ? 'checked' : '' ?>> 4 Person</label>
-                        <label><input type="checkbox" name="capacity[]" value="6" <?= in_array('6', $capacities) ? 'checked' : '' ?>> 6 Person</label>
-                        <label><input type="checkbox" name="capacity[]" value="8" <?= in_array('8', $capacities) ? 'checked' : '' ?>> 8 or More</label>
+                        <label><input type="checkbox" name="capacity[]" value="2" <?= in_array('2', $capacities) ? 'checked' : '' ?>>
+                            2 Person</label>
+                        <label><input type="checkbox" name="capacity[]" value="4" <?= in_array('4', $capacities) ? 'checked' : '' ?>>
+                            4 Person</label>
+                        <label><input type="checkbox" name="capacity[]" value="6" <?= in_array('6', $capacities) ? 'checked' : '' ?>>
+                            6 Person</label>
+                        <label><input type="checkbox" name="capacity[]" value="8" <?= in_array('8', $capacities) ? 'checked' : '' ?>>
+                            8 or More</label>
                     </div>
 
                     <div class="filter-group">
@@ -214,9 +222,9 @@ $hasMore = $totalCars > $limit;
                 </form>
             </aside>
 
-            <div class="cars">
+            <div class="catalog-content">
 
-                <div id="cars-container">
+                <div class="cars" id="cars-container">
                     <?php if (empty($cars)): ?>
                         <p>Geen auto gevonden<?= $search ? ' voor "' . htmlspecialchars($search) . '"' : '' ?></p>
                     <?php else: ?>
