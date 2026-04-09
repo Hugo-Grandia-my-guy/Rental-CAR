@@ -45,9 +45,9 @@ try {
                     <img src="assets/images/products/<?= htmlspecialchars($car['image']) ?>" alt="">
 
                     <div class="car-specification">
-                        <span><img src="/assets/images/icons/gas-station.svg" alt=""> <?= htmlspecialchars($car['gasoline']) ?>l</span>
-                        <span><img src="/assets/images/icons/car.svg" alt=""> <?= htmlspecialchars($car['steering']) ?></span>
-                        <span><img src="/assets/images/icons/profile-2user.svg" alt=""> <?= htmlspecialchars($car['capacity']) ?> Personen</span>
+                        <img src="/assets/images/icons/gas-station.svg" alt=""> <?= htmlspecialchars($car['gasoline']) ?>l
+                        <img src="/assets/images/icons/car.svg" alt=""> <?= htmlspecialchars($car['steering']) ?>
+                        <img src="/assets/images/icons/profile-2user.svg" alt=""> <?= htmlspecialchars($car['capacity']) ?> Personen
                     </div>
 
                     <div class="rent-details">
@@ -73,9 +73,9 @@ try {
                     <img src="assets/images/products/<?= htmlspecialchars($car['image']) ?>" alt="">
 
                     <div class="car-specification">
-                        <span><img src="/assets/images/icons/gas-station.svg" alt=""> <?= htmlspecialchars($car['gasoline']) ?>l</span>
-                        <span><img src="/assets/images/icons/car.svg" alt=""> <?= htmlspecialchars($car['steering']) ?></span>
-                        <span><img src="/assets/images/icons/profile-2user.svg" alt=""> <?= htmlspecialchars($car['capacity']) ?> Personen</span>
+                        <img src="/assets/images/icons/gas-station.svg" alt=""> <?= htmlspecialchars($car['gasoline']) ?>l
+                        <img src="/assets/images/icons/car.svg" alt=""> <?= htmlspecialchars($car['steering']) ?>
+                        <img src="/assets/images/icons/profile-2user.svg" alt=""> <?= htmlspecialchars($car['capacity']) ?> Personen
                     </div>
 
                     <div class="rent-details">

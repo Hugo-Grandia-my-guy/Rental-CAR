@@ -10,6 +10,7 @@ $userId = $_SESSION['id'] ?? null;
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="balhblahblah">
     <title>Rydr</title>
     <link rel="stylesheet" href="/assets/css/main.css">
     <link rel="icon" type="image/png" href="/assets/images/rental-icon.png" sizes="32x32">
@@ -25,14 +26,14 @@ $userId = $_SESSION['id'] ?? null;
         </a>
     </div>
     <form method="GET" action="/ons-aanbod">
-        <input
-                type="search"
-                name="q"
-                placeholder="Welke auto wilt u huren?"
-                value="<?= htmlspecialchars($_GET['q'] ?? '') ?>"
-        >
+            <input
+                    type="search"
+                    name="q"
+                    placeholder="Welke auto wilt u huren?"
+                    value="<?= htmlspecialchars($_GET['q'] ?? '') ?>"
+            >
         <button type="submit" style="background: none; border: none;">
-            <img src="/assets/images/icons/search-normal.svg" alt="" class="search-icon">
+            <img src="/assets/images/icons/search-normal.svg" alt="submit button" class="search-icon">
         </button>
     </form>
     <nav>
