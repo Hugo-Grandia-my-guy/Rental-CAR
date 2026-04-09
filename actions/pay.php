@@ -7,11 +7,18 @@ if (!isset($_SESSION['id'])) {
     exit;
 }
 
-$carId = $_POST['car_id'] ?? null;
-$days = (int)($_POST['days'] ?? 1);
+if (
+    !isset($_POST['csrf_token'], $_SESSION['csrf_token']) ||
+    !hash_equals($_SESSION['csrf_token'], $_POST['csrf_token'])
+) {
+    die("CSRF fout");
+}
 
-if (!$carId || $days < 1) {
-    die("Ongeldige data");
+$carId = filter_input(INPUT_POST, 'car_id', FILTER_VALIDATE_INT);
+$days = filter_input(INPUT_POST, 'days', FILTER_VALIDATE_INT);
+
+if (!$carId || !$days || $days < 1) {
+    die("Ongeldige invoer");
 }
 
 try {
@@ -26,12 +33,12 @@ try {
 
     $total = $car['kosten'] * $days;
 
-    $insert = $pdo->prepare("
+    $stmt = $pdo->prepare("
         INSERT INTO orders (user_id, car_id, days, total_price)
         VALUES (:user, :car, :days, :total)
     ");
 
-    $insert->execute([
+    $stmt->execute([
         ':user' => $_SESSION['id'],
         ':car' => $carId,
         ':days' => $days,

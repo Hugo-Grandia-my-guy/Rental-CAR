@@ -168,6 +168,7 @@ $hasMore = $totalCars > $limit;
             transform: translateY(-2px);
         }
         .catalog-content{
+            display: grid;
             column-count: 3;
             gap: 20px;
         }
@@ -213,9 +214,9 @@ $hasMore = $totalCars > $limit;
                 </form>
             </aside>
 
-            <div class="catalog-content">
+            <div class="cars">
 
-                <div class="cars" id="cars-container">
+                <div id="cars-container">
                     <?php if (empty($cars)): ?>
                         <p>Geen auto gevonden<?= $search ? ' voor "' . htmlspecialchars($search) . '"' : '' ?></p>
                     <?php else: ?>
@@ -287,7 +288,6 @@ $hasMore = $totalCars > $limit;
             });
         }
 
-        // slider
         const range = document.getElementById('priceRange');
         const value = document.getElementById('priceValue');
 
