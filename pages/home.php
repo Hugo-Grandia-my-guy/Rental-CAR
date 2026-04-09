@@ -59,7 +59,7 @@ try {
         </div>
 
         <h2 class="section-title">Aanbevolen auto's</h2>
-        <div class="cars">
+        <div  class="cars">
             <?php for ($i = 4; $i < 12 && $i < count($cars); $i++):
                 $car = $cars[$i]; ?>
                 <div class="car-details">
