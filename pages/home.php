@@ -17,14 +17,14 @@ try {
                 <p>Snel en eenvoudig een auto huren. Natuurlijk voor een lage prijs.</p>
                 <a href="/car-detail?id=11" class="button-primary">Huur nu een auto</a>
                 <img src="/assets/images/car-rent-header-image-1.WEBP" alt="Koenigsegg CCGT ">
-                <img src="/assets/images/header-circle-background.svg" alt="" class="background-header-element">
+                <img src="/assets/images/header-circle-background.svg" alt="cirkel-achtergrond" class="background-header-element">
             </div>
             <div class="advertorial">
                 <h2>Wij verhuren ook bedrijfswagens</h2>
                 <p>Voor een vaste lage prijs met prettig voordelen.</p>
                 <a href="/car-detail?id=2" class="button-primary">Huur nu een auto</a>
-                <img src="/assets/images/car-rent-header-image-2.WEBP" alt="">
-                <img src="/assets/images/header-block-background.svg" alt="" class="background-header-element">
+                <img src="/assets/images/car-rent-header-image-2.WEBP" alt="car-rent-header-image-2">
+                <img src="/assets/images/header-block-background.svg" alt="kleur-achtergrond" class="background-header-element">
             </div>
         </div>
     </header>
@@ -45,9 +45,9 @@ try {
                     <img src="assets/images/products/<?= htmlspecialchars($car['image']) ?>" alt="">
 
                     <div class="car-specification">
-                        <span><img src="/assets/images/icons/gas-station.svg" alt=""> <?= htmlspecialchars($car['gasoline']) ?>l</span>
-                        <span><img src="/assets/images/icons/car.svg" alt=""> <?= htmlspecialchars($car['steering']) ?></span>
-                        <span><img src="/assets/images/icons/profile-2user.svg" alt=""> <?= htmlspecialchars($car['capacity']) ?> Personen</span>
+                        <span><img src="/assets/images/icons/gas-station.svg" alt="gas-icon"> <?= htmlspecialchars($car['gasoline']) ?>l</span>
+                        <span><img src="/assets/images/icons/car.svg" alt="car-icon"> <?= htmlspecialchars($car['steering']) ?></span>
+                        <span><img src="/assets/images/icons/profile-2user.svg" alt="user-icon"> <?= htmlspecialchars($car['capacity']) ?> Personen</span>
                     </div>
 
                     <div class="rent-details">
@@ -73,9 +73,9 @@ try {
                     <img src="assets/images/products/<?= htmlspecialchars($car['image']) ?>" alt="">
 
                     <div class="car-specification">
-                        <span><img src="/assets/images/icons/gas-station.svg" alt=""> <?= htmlspecialchars($car['gasoline']) ?>l</span>
-                        <span><img src="/assets/images/icons/car.svg" alt=""> <?= htmlspecialchars($car['steering']) ?></span>
-                        <span><img src="/assets/images/icons/profile-2user.svg" alt=""> <?= htmlspecialchars($car['capacity']) ?> Personen</span>
+                        <span><img src="/assets/images/icons/gas-station.svg" alt="gas-icon"> <?= htmlspecialchars($car['gasoline']) ?>l</span>
+                        <span><img src="/assets/images/icons/car.svg" alt="car-icon"> <?= htmlspecialchars($car['steering']) ?></span>
+                        <span><img src="/assets/images/icons/profile-2user.svg" alt="user-icon"> <?= htmlspecialchars($car['capacity']) ?> Personen</span>
                     </div>
 
                     <div class="rent-details">
