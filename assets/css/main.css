@@ -304,7 +304,7 @@ footer .footer-links .links ul a {
 .topbar form input[type=search] {
   padding: 10px 40px 10px 40px; /* ruimte voor icoon links */
   width: 80%;
-  border: 1px solid #C3D4E9;
+  border: 1px solid black;
   border-radius: 70px;
   font-size: 14px;
   min-width: 200px;
