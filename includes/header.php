@@ -38,9 +38,9 @@ $userId = $_SESSION['id'] ?? null;
     </form>
     <nav>
         <ul>
-            <li><a href="/">Home</a></li>
-            <li><a href="/ons-aanbod">Ons aanbod</a></li>
-            <li><a href="/hulp">Hulp nodig?</a></li>
+            <li><a href="/" style="color: #0040ff;">Home</a></li>
+            <li><a href="/ons-aanbod" style="color: #0040ff;">Ons aanbod</a></li>
+            <li><a href="/hulp" style="color: #0040ff;">Hulp nodig?</a></li>
         </ul>
     </nav>
     <div class="menu">
@@ -65,3 +65,9 @@ $userId = $_SESSION['id'] ?? null;
     <script>
         window.isLoggedIn = <?= isset($_SESSION['id']) ? 'true' : 'false' ?>;
     </script>
+    <style> 
+    input::placeholder {
+  color: #a4a4a4;
+  opacity: 1; /* belangrijk voor sommige browsers */
+}
+</style>

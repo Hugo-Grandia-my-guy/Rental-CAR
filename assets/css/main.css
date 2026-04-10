@@ -386,7 +386,7 @@ footer .footer-links .links ul a {
   font-size: 14px;
 }
 .topbar .menu .account .account-dropdown ul li a:hover {
-  background-color: #f5f5f5;
+  background-color: #000000;
 }
 .topbar .menu .account.active .account-dropdown {
   display: block;
@@ -413,8 +413,8 @@ footer .footer-links .links ul a {
 }
 
 .section-title {
-  font-size: 1em;
-  color: #90A3BF;
+  font-size: 2em;
+  color: #3563e9;
 }
 
 .cars {
@@ -433,7 +433,7 @@ footer .footer-links .links ul a {
   margin: 0;
 }
 .cars .car-details .car-type {
-  color: #90A3BF;
+  color: #6a6a6a;
 }
 .cars img {
   max-height: 87px;
@@ -446,7 +446,7 @@ footer .footer-links .links ul a {
   display: flex;
   align-items: center;
   gap: 5px;
-  color: #90A3BF;
+  color: #6a6a6a;
 }
 .cars .rent-details {
   display: flex;
