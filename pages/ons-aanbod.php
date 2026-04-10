@@ -214,8 +214,23 @@ $hasMore = $totalCars > $limit;
                     <div class="filter-group">
                         <h2 style = "color: #3563e9;">PRICE</h2>
 
-                        <input type="range" name="max_price" min="0" max="200" value="<?= $maxPrice ?: 100 ?>" id="priceRange">
-                        <p>Max. €<span id="priceValue"><?= $maxPrice ?: 100 ?></span></p>
+                        <div class="price-filter">
+                            <input type="range"
+                                   name="max_price"
+                                   min="0"
+                                   max="200"
+                                   value="<?= $maxPrice ?: 100 ?>"
+                                   id="priceRange">
+
+                            <div class="price-input">
+                                <span>Max €</span>
+                                <input type="number"
+                                       id="priceInput"
+                                       min="0"
+                                       max="200"
+                                       value="<?= $maxPrice ?: 100 ?>">
+                            </div>
+                        </div>
                     </div>
 
                     <button type="submit" class="button-primary">Apply Filter</button>
@@ -261,47 +276,25 @@ $hasMore = $totalCars > $limit;
     </main>
 
     <script>
-        let page = 2;
-        const totalCars = <?= (int)$totalCars ?>;
-        let loadedCars = <?= count($cars) ?>;
-
-        const loadMoreBtn = document.getElementById('loadMoreBtn');
-
-        if (loadMoreBtn) {
-            loadMoreBtn.addEventListener('click', () => {
-
-                const params = new URLSearchParams(<?= json_encode($_GET) ?>);
-                params.set('page', page);
-
-                fetch('/database/load-more-cars.php?' + params.toString())
-                    .then(res => res.text())
-                    .then(data => {
-
-                        if (!data.trim()) {
-                            loadMoreBtn.style.display = 'none';
-                            return;
-                        }
-
-                        document
-                            .getElementById('cars-container')
-                            .insertAdjacentHTML('beforeend', data);
-
-                        page++;
-                        loadedCars += 10;
-
-                        if (loadedCars >= totalCars) {
-                            loadMoreBtn.style.display = 'none';
-                        }
-                    });
-            });
-        }
-
         const range = document.getElementById('priceRange');
-        const value = document.getElementById('priceValue');
+        const input = document.getElementById('priceInput');
 
-        if (range) {
+        if (range && input) {
+
+            // Ползунок → input
             range.addEventListener('input', () => {
-                value.textContent = range.value;
+                input.value = range.value;
+            });
+
+            // input → ползунок
+            input.addEventListener('input', () => {
+                let value = parseInt(input.value) || 0;
+
+                if (value < 0) value = 0;
+                if (value > 200) value = 200;
+
+                input.value = value;
+                range.value = value;
             });
         }
     </script>
