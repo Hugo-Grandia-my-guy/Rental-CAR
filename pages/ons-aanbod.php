@@ -184,7 +184,7 @@ $hasMore = $totalCars > $limit;
                     <input type="hidden" name="q" value="<?= htmlspecialchars($search) ?>">
 
                     <div class="filter-group">
-                        <h4 style = "color: #3563e9;">TYPE</h4>
+                        <h2 style = "color: #3563e9;">TYPE</h2>
 
                         <label><input type="checkbox" name="type[]" value="modern" <?= in_array('modern', $types) ? 'checked' : '' ?>>
                             modern</label>
@@ -199,7 +199,7 @@ $hasMore = $totalCars > $limit;
                     </div>
 
                     <div class="filter-group">
-                        <h4 style = "color: #3563e9;">CAPACITY</h4>
+                        <h2 style = "color: #3563e9;">CAPACITY</h2>
 
                         <label><input type="checkbox" name="capacity[]" value="2" <?= in_array('2', $capacities) ? 'checked' : '' ?>>
                             2 Person</label>
@@ -212,7 +212,7 @@ $hasMore = $totalCars > $limit;
                     </div>
 
                     <div class="filter-group">
-                        <h4 style = "color: #3563e9;">PRICE</h4>
+                        <h2 style = "color: #3563e9;">PRICE</h2>
 
                         <input type="range" name="max_price" min="0" max="200" value="<?= $maxPrice ?: 100 ?>" id="priceRange">
                         <p>Max. €<span id="priceValue"><?= $maxPrice ?: 100 ?></span></p>
