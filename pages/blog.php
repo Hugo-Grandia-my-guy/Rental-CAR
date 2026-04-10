@@ -58,7 +58,7 @@
     -duurzaamheid en klanttevredenheid<br>
     -zet het bedrijf nieuwe standaarden in de autoverhuurbranche.</p>
 
-<h3>Rydr is niet zomaar een autoverhuurbedrijf — het is een nieuwe manier van denken over mobiliteit.</h3>
+    <h3>Rydr is niet zomaar een autoverhuurbedrijf — het is een nieuwe manier van denken over mobiliteit.</h3>
 </div>
 
     <?php require "includes/footer.php"; ?>
