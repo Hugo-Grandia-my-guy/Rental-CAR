@@ -13,11 +13,11 @@
 
     <div class="contact-info">
         <div class="contact-item">
-            <img src="/assets/images/phone.WEBP" alt="Telefoon" style = "width: 18px; height: 18px;">
+            <img src="/assets/images/phone.WEBP" alt="Telefoon" style = "width: 18px; height: 23,46232179226069px;">
             <span>  +31 123 456 789</span>
         </div>
         <div class="contact-item">
-            <img src="/assets/images/email.WEBP" alt="E-mail" style = "width: 16px; height: 18px;"> 
+            <img src="/assets/images/email.WEBP" alt="E-mail" style = "width: 25,7286432160804px; height: 16px;"> 
             <span>  info@rydr.nl </span>
         </div>
         <div class="contact-item">
