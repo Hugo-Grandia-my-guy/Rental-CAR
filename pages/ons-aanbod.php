@@ -276,17 +276,51 @@ $hasMore = $totalCars > $limit;
     </main>
 
     <script>
+
+        let page = 2;
+        const totalCars = <?= (int)$totalCars ?>;
+        let loadedCars = <?= count($cars) ?>;
+
+        const loadMoreBtn = document.getElementById('loadMoreBtn');
+
+        if (loadMoreBtn) {
+            loadMoreBtn.addEventListener('click', () => {
+
+                const params = new URLSearchParams(<?= json_encode($_GET) ?>);
+                params.set('page', page);
+
+                fetch('/database/load-more-cars.php?' + params.toString())
+                    .then(res => res.text())
+                    .then(data => {
+
+                        if (!data.trim()) {
+                            loadMoreBtn.style.display = 'none';
+                            return;
+                        }
+
+                        document
+                            .getElementById('cars-container')
+                            .insertAdjacentHTML('beforeend', data);
+
+                        page++;
+                        loadedCars += 10;
+
+                        if (loadedCars >= totalCars) {
+                            loadMoreBtn.style.display = 'none';
+                        }
+                    });
+            });
+        }
+
         const range = document.getElementById('priceRange');
         const input = document.getElementById('priceInput');
 
         if (range && input) {
 
-            // Ползунок → input
             range.addEventListener('input', () => {
                 input.value = range.value;
             });
 
-            // input → ползунок
             input.addEventListener('input', () => {
                 let value = parseInt(input.value) || 0;
 
