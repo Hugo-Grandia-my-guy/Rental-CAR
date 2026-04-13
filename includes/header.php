@@ -35,7 +35,7 @@ $userId = $_SESSION['id'] ?? null;
                     placeholder="Welke auto wilt u huren?"
                     value="<?= htmlspecialchars($_GET['q'] ?? '') ?>"
             >
-        <button name="hap" type="submit" style="background: none; border: none;">
+        
             <img src="/assets/images/icons/search-normal.svg" alt="submit button" class="search-icon">
         </button>
     </form>
