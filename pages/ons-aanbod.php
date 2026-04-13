@@ -281,12 +281,10 @@ $hasMore = $totalCars > $limit;
 
         if (range && input) {
 
-            // Ползунок → input
             range.addEventListener('input', () => {
                 input.value = range.value;
             });
-
-            // input → ползунок
+            
             input.addEventListener('input', () => {
                 let value = parseInt(input.value) || 0;
 
